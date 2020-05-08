@@ -1,0 +1,59 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="wrap_content"
+    android:background="@color/white"
+    android:elevation="10dp"
+    android:layout_marginBottom="10dp"
+    android:layout_height="80dp">
+
+    <ImageView
+        android:id="@+id/productImageIv"
+        android:layout_margin="10dp"
+        android:layout_width="60dp"
+        android:layout_height="60dp"
+        android:scaleType="fitXY"
+        android:src="@drawable/img5"/>
+
+    <TextView
+        android:id="@+id/productnameTv"
+        android:paddingTop="10dp"
+        android:paddingLeft="5dp"
+        android:paddingRight="10dp"
+        android:layout_width="wrap_content"
+        android:layout_height="30dp"
+        android:text="Lenovo X-Series"
+        android:textColor="@color/black"
+        android:fontFamily="@font/heading1"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:layout_toRightOf="@+id/productImageIv"/>
+
+    <TextView
+        android:id="@+id/productCategoryTv"
+        android:layout_below="@+id/productnameTv"
+        android:paddingLeft="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Laptop"
+        android:textColor="@color/black"
+        android:fontFamily="@font/heading1"
+        android:textSize="12sp"
+        android:textStyle="bold"
+        android:layout_toRightOf="@+id/productImageIv"/>
+
+    <TextView
+        android:id="@+id/productpriceTv"
+        android:layout_below="@+id/productCategoryTv"
+        android:paddingLeft="5dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Price : 35,000"
+        android:textColor="@color/lightGreen"
+        android:fontFamily="@font/heading1"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:layout_toRightOf="@+id/productImageIv"/>
+
+
+</RelativeLayout>

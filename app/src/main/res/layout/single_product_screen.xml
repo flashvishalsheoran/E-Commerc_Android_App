@@ -1,0 +1,86 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    android:layout_width="match_parent"
+    android:background="@color/white"
+    android:layout_margin="10dp"
+    android:padding="10dp"
+    android:layout_height="130dp">
+
+    <ImageView
+        android:elevation="10dp"
+        android:id="@+id/productIv"
+        android:layout_centerVertical="true"
+        android:layout_width="100dp"
+        android:layout_height="100dp"
+        android:src="@drawable/p6"/>
+
+    <TextView
+        android:id="@+id/productName"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="iPhone 11 Pro Max (64gb)"
+        android:layout_marginTop="5dp"
+        android:paddingLeft="15dp"
+        android:fontFamily="@font/heading1"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/black"
+        android:layout_toRightOf="@id/productIv"/>
+
+    <TextView
+        android:layout_below="@+id/productName"
+        android:id="@+id/productDescription"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="iPhone 11 Pro Max (64gb)"
+        android:paddingLeft="15dp"
+        android:fontFamily="@font/heading1"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:textColor="@color/darkGrey"
+        android:layout_toRightOf="@id/productIv"/>
+
+    <TextView
+        android:layout_below="@+id/productDescription"
+        android:id="@+id/productPrice"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="44,999"
+        android:paddingLeft="15dp"
+        android:fontFamily="@font/heading1"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:textColor="@color/lightGreen"
+        android:layout_toRightOf="@id/productIv"/>
+
+    <TextView
+        android:layout_alignParentBottom="true"
+        android:id="@+id/stockTv"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="In Stock : Available"
+        android:paddingLeft="15dp"
+        android:fontFamily="@font/heading1"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:textColor="@color/lightGreen"
+        android:layout_toRightOf="@id/productIv"/>
+
+
+    <ImageView
+        android:id="@+id/favoriteProductButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:src="@drawable/ic_heart_disselected"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"/>
+
+
+
+
+
+
+
+
+</RelativeLayout>

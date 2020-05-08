@@ -1,0 +1,99 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="@color/backgroundColor"
+    android:layout_height="match_parent"
+    tools:context="devops.vishal.ecommerce.activity.ui.search.SearchFragment">
+
+
+    <RelativeLayout
+        android:id="@+id/toolbarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="65dp"
+        android:background="@color/white"
+        android:elevation="20dp"
+        android:layout_alignParentTop="true">
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:layout_centerInParent="true"
+            android:background="@drawable/white_relative_back"
+            android:layout_margin="10dp">
+
+            <EditText
+                android:id="@+id/searchEt"
+                android:layout_width="match_parent"
+                android:layout_marginLeft="10dp"
+                android:layout_marginTop="5dp"
+                android:layout_marginBottom="5dp"
+                android:hint="Search Any Product"
+                android:layout_centerVertical="true"
+                android:textColor="@color/black"
+                android:paddingLeft="10dp"
+                android:fontFamily="@font/heading1"
+                android:textSize="14sp"
+                android:layout_marginRight="10dp"
+                android:layout_height="match_parent"
+                android:background="@color/white"/>
+
+            <ImageView
+                android:clickable="true"
+                android:id="@+id/searchButton"
+                android:layout_width="22dp"
+                android:layout_height="22dp"
+                android:src="@drawable/search_icon_selector"
+                android:layout_alignParentRight="true"
+                android:layout_centerVertical="true"
+                android:layout_marginRight="15dp"/>
+
+        </RelativeLayout>
+
+
+
+    </RelativeLayout>
+
+
+    <androidx.recyclerview.widget.RecyclerView
+        android:id="@+id/productRecyclerView"
+        android:layout_width="match_parent"
+        android:visibility="gone"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbarLayout"/>
+
+
+
+
+
+    <LinearLayout
+        android:id="@+id/emptySearchLayout"
+        android:layout_centerInParent="true"
+        android:layout_width="wrap_content"
+        android:orientation="vertical"
+        android:layout_height="wrap_content">
+
+        <ImageView
+            android:layout_gravity="center_horizontal"
+            android:id="@+id/searchImage"
+            android:layout_width="80dp"
+            android:layout_height="80dp"
+            android:src="@drawable/ic_search_image"/>
+
+        <TextView
+            android:layout_gravity="center_horizontal"
+            android:paddingTop="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/searchImage"
+            android:fontFamily="@font/heading1"
+            android:textSize="18dp"
+            android:textColor="@color/black"
+            android:text="  You Can Start Searching...."/>
+
+    </LinearLayout>
+
+
+
+
+</RelativeLayout>

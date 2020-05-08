@@ -1,0 +1,66 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    tools:context="devops.vishal.ecommerce.fragment.SignupFragment">
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_centerInParent="true"
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
+
+        <EditText
+            android:id="@+id/userNameEt"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:inputType="textEmailAddress"
+            android:layout_centerInParent="true"
+            android:hint="Enter Your Full Name"/>
+
+        <EditText
+            android:id="@+id/phoneEt"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:inputType="textPassword"
+            android:layout_below="@+id/loginEt"
+            android:hint="Enter Your Phone Number"/>
+
+        <EditText
+            android:id="@+id/emailEt"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:inputType="textPassword"
+            android:layout_below="@+id/loginEt"
+            android:hint="Enter Your Email Address"/>
+
+        <EditText
+            android:id="@+id/passEt"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:inputType="textPassword"
+            android:layout_below="@+id/loginEt"
+            android:hint="Enter a New Password"/>
+
+        <EditText
+            android:id="@+id/rePassEt"
+            android:layout_width="match_parent"
+            android:layout_height="40dp"
+            android:inputType="textPassword"
+            android:layout_below="@+id/loginEt"
+            android:hint="Enter Your Password Again"/>
+
+        <Button
+            android:id="@+id/fragmentSignupBtn"
+            android:layout_width="match_parent"
+            android:layout_below="@+id/passwordEt"
+            android:layout_height="40dp"
+            android:text="Signup"/>
+
+
+
+
+    </LinearLayout>
+
+
+</RelativeLayout>

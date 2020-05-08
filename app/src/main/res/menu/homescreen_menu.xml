@@ -1,0 +1,87 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <group android:checkableBehavior="single">
+
+        <item android:title="Profile">
+
+            <menu>
+
+                <item
+                    android:id="@+id/navAccount"
+                    android:title="My Account" />
+
+            </menu>
+
+        </item>
+
+    </group>
+
+
+    <group android:checkableBehavior="single">
+
+        <item android:title="Communicate">
+
+            <menu>
+
+                <item
+                    android:id="@+id/navContactUs"
+                    android:title="Contact Us" />
+
+                <item
+                    android:id="@+id/navFollow"
+                    android:title="Rate Us" />
+
+                <item
+                    android:id="@+id/nevFeedback"
+                    android:title="Feedback" />
+
+            </menu>
+
+        </item>
+
+    </group>
+
+
+    <group android:checkableBehavior="single">
+
+        <item android:title="Social Media">
+
+            <menu>
+
+                <item
+                    android:id="@+id/navFacebook"
+                    android:title="Facebook" />
+
+                <item
+                    android:id="@+id/navTwitter"
+                    android:title="Twitter" />
+
+                <item
+                    android:id="@+id/navInsta"
+                    android:title="Instagram" />
+
+            </menu>
+
+        </item>
+
+    </group>
+
+    <group android:checkableBehavior="single">
+
+        <item android:title="Settings">
+
+            <menu>
+
+                <item
+                    android:id="@+id/navLogout"
+                    android:title="Log Out" />
+
+            </menu>
+
+        </item>
+
+    </group>
+
+
+</menu>

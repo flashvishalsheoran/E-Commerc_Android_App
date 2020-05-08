@@ -1,0 +1,112 @@
+apply plugin: 'com.android.application'
+apply plugin: 'com.google.firebase.crashlytics'
+
+android {
+    compileSdkVersion 29
+    buildToolsVersion "29.0.2"
+    defaultConfig {
+        applicationId "devops.vishal.pilanibusroute"
+        minSdkVersion 25
+        targetSdkVersion 29
+        versionCode 1
+        versionName "1.0"
+        testInstrumentationRunner "androidx.test.runner.AndroidJUnitRunner"
+        multiDexEnabled true
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
+
+    buildTypes {
+        debug {
+            debuggable true
+            ext.enableCrashlytics = true
+        }
+        release {
+            debuggable false
+            minifyEnabled true
+            shrinkResources true
+            proguardFiles getDefaultProguardFile('proguard-android.txt'), 'proguard-rules.pro'
+        }
+        dexOptions {
+            matchingFallbacks = ['release', 'debug']
+        }
+    }
+    packagingOptions {
+        exclude 'META-INF/DEPENDENCIES'
+    }
+    dataBinding {
+        enabled = true
+    }
+
+    viewBinding {
+        enabled = true
+    }
+}
+
+ext {
+    support = '28.0.0'
+    playServices = '11.8.0'
+    firebaseConfig = '19.1.1'
+    firebaseDatabse = '19.2.1'
+    firebaseCrash = '16.2.1'
+    firebaseCore = '17.2.3'
+    firebaseCrash = '2.10.1'
+    firebaseAuth = '19.2.0'
+    work = '2.3.3'
+    lifecycle = '2.2.0'
+    glide = '4.11.0'
+}
+
+repositories {
+    mavenCentral()
+}
+
+
+dependencies {
+    implementation fileTree(dir: 'libs', include: ['*.jar'])
+    implementation 'androidx.appcompat:appcompat:1.1.0'
+    implementation 'androidx.constraintlayout:constraintlayout:1.1.3'
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
+    implementation 'androidx.legacy:legacy-support-v4:1.0.0'
+    implementation 'androidx.navigation:navigation-fragment:2.2.1'
+    implementation 'androidx.navigation:navigation-ui:2.2.1'
+    testImplementation 'junit:junit:4.13'
+    androidTestImplementation 'androidx.test.ext:junit:1.1.1'
+    androidTestImplementation 'androidx.test.espresso:espresso-core:3.2.0'
+    implementation 'com.google.android.material:material:1.1.0-alpha10'
+
+    //Multidex Dependency
+    def multidex_version = "2.0.1"
+    implementation "androidx.multidex:multidex:$multidex_version"
+
+    //Firebase Dependencies
+    implementation "com.google.firebase:firebase-core:$firebaseCore"
+    implementation "com.google.firebase:firebase-storage:$firebaseConfig"
+    implementation "com.google.firebase:firebase-database:$firebaseDatabse"
+    implementation "com.google.firebase:firebase-config:$firebaseConfig"
+    implementation "com.google.firebase:firebase-crashlytics:17.0.0-beta01"
+    implementation "com.google.firebase:firebase-analytics:17.2.3"
+    implementation "com.google.firebase:firebase-auth:$firebaseAuth"
+    implementation 'com.google.android.gms:play-services-maps:17.0.0'
+    implementation 'com.google.android.gms:play-services-location:17.0.0'
+    implementation 'com.google.android.libraries.places:places:2.2.0'
+
+    //Other Dependencies
+    implementation "androidx.work:work-runtime:$work"
+    implementation "androidx.lifecycle:lifecycle-extensions:$lifecycle"
+    implementation 'com.google.android.material:material:1.1.0'
+    implementation "com.squareup.retrofit2:retrofit:2.7.1"
+    implementation "com.squareup.retrofit2:converter-gson:2.7.1"
+    implementation 'com.job:droidnet:2.0.0'
+    implementation 'com.razorpay:checkout:1.5.13'
+
+    //Image Libraries
+    implementation "com.github.bumptech.glide:glide:$glide"
+    implementation 'de.hdodenhof:circleimageview:3.1.0'
+
+}
+
+apply plugin: 'com.google.gms.google-services'

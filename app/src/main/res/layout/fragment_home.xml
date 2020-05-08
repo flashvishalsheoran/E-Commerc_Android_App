@@ -1,0 +1,286 @@
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="#f1f1f1"
+    android:layout_height="match_parent"
+    tools:context="devops.vishal.ecommerce.activity.ui.home.HomeFragment">
+
+
+    <RelativeLayout
+        android:id="@+id/toolbarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:background="@color/toolbarColor"
+        android:layout_alignParentTop="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="@color/textColor"
+            android:textSize="20sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/justold"
+            android:text="PeerCart"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="8dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_menu"/>
+
+        <ImageView
+            android:layout_width="24dp"
+            android:layout_height="24dp"
+            android:layout_marginRight="15dp"
+            android:layout_alignParentRight="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_box"/>
+    </RelativeLayout>
+
+    <!-- ======================== Main Layout========================= -->
+
+    <androidx.core.widget.NestedScrollView
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        android:layout_below="@+id/toolbarLayout">
+
+
+    <RelativeLayout
+        android:padding="10dp"
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="250dp"
+            android:id="@+id/topImageRelativeLayout">
+
+            <androidx.viewpager.widget.ViewPager
+                android:id="@+id/viewPager"
+                android:layout_width="wrap_content"
+                android:layout_height="250dp" />
+
+        <LinearLayout
+            android:id="@+id/SliderDots"
+            android:layout_marginBottom="10dp"
+            android:orientation="horizontal"
+            android:gravity="center_vertical|center_horizontal"
+            android:layout_width="match_parent"
+            android:layout_alignParentBottom="true"
+            android:layout_height="wrap_content"/>
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/cateoriesRelativeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:padding="10dp"
+            android:background="@color/white"
+            android:layout_below="@+id/topImageRelativeLayout">
+
+            <TextView
+                android:id="@+id/categoriesTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="15dp"
+                android:fontFamily="@font/heading1"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:text="Categories"/>
+
+
+            <androidx.recyclerview.widget.RecyclerView
+                android:id="@+id/categoriesRecyclerView"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/categoriesTv"
+                android:paddingBottom="10dp"
+                />
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/offerRelativeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="15dp"
+            android:padding="10dp"
+            android:background="@color/white"
+            android:layout_below="@+id/cateoriesRelativeLayout">
+
+
+            <ImageView
+                android:id="@+id/priceTagIv"
+                android:layout_marginTop="5dp"
+                android:layout_width="30dp"
+                android:layout_height="30dp"
+                android:src="@drawable/ic_price_tag"
+                android:layout_alignParentLeft="true"/>
+
+            <TextView
+                android:id="@+id/offerTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/heading1"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:layout_toRightOf="@+id/priceTagIv"
+                android:layout_marginLeft="15dp"
+                android:textColor="@color/black"
+                android:text="Offers only for you"/>
+
+            <TextView
+                android:id="@+id/offerIntroTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/heading1"
+                android:textSize="12sp"
+                android:textStyle="bold"
+                android:layout_below="@+id/offerTv"
+                android:layout_toRightOf="@+id/priceTagIv"
+                android:layout_marginLeft="15dp"
+                android:textColor="@color/darkGrey"
+                android:text="We have selected some products for you"/>
+
+        </RelativeLayout>
+
+
+        <RelativeLayout
+            android:id="@+id/offerImageRelativeLayout"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:background="@color/white"
+            android:layout_below="@+id/offerRelativeLayout">
+
+            <ImageView
+                android:id="@+id/offerImage"
+                android:layout_width="fill_parent"
+                android:layout_height="120dp"
+                android:src="@drawable/sale2"
+                android:scaleType="fitXY"/>
+
+        </RelativeLayout>
+
+        <RelativeLayout
+            android:id="@+id/newCollectionRelativeLayout"
+            android:layout_below="@+id/offerImageRelativeLayout"
+            android:layout_width="match_parent"
+            android:background="@color/white"
+            android:layout_height="wrap_content">
+
+            <TextView
+                android:id="@+id/newArrivalTv"
+                android:paddingTop="10dp"
+                android:paddingLeft="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="33dp"
+                android:text="New Arrivals"
+                android:fontFamily="@font/heading1"
+                android:textSize="16sp"
+                android:textColor="@color/darkGrey"/>
+
+            <TextView
+                android:id="@+id/summerCollectionTv"
+                android:paddingLeft="10dp"
+                android:paddingBottom="10dp"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/newArrivalTv"
+                android:text="Summer '20 Collection"
+                android:fontFamily="@font/heading1"
+                android:textSize="12sp"
+                android:textColor="@color/darkGrey"/>
+
+            <Button
+                android:layout_width="100dp"
+                android:layout_height="35dp"
+                android:layout_alignParentRight="true"
+                android:text="Shop Now"
+                android:textAllCaps="false"
+                android:textSize="14sp"
+                android:textColor="@color/white"
+                android:fontFamily="@font/heading1"
+                android:layout_centerVertical="true"
+                android:layout_marginTop="10dp"
+                android:layout_marginRight="10dp"
+                android:background="@color/quantum_orange"/>
+
+        </RelativeLayout>
+
+
+
+        <RelativeLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_below="@+id/newCollectionRelativeLayout"
+            android:layout_marginTop="15dp"
+            android:padding="10dp"
+            android:background="@color/white">
+
+            <TextView
+                android:id="@+id/recentTv"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:paddingBottom="15dp"
+                android:fontFamily="@font/heading1"
+                android:textSize="16sp"
+                android:textStyle="bold"
+                android:textColor="@color/black"
+                android:text="Popular Products"/>
+
+
+            <LinearLayout
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_below="@+id/recentTv"
+                android:orientation="horizontal">
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/popularRecycler1"
+                    android:layout_marginLeft="5dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+
+                <androidx.recyclerview.widget.RecyclerView
+                    android:id="@+id/popularRecycler2"
+                    android:layout_marginRight="5dp"
+                    android:layout_width="0dp"
+                    android:layout_height="wrap_content"
+                    android:layout_weight="1"/>
+
+            </LinearLayout>
+
+
+
+
+        </RelativeLayout>
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    </RelativeLayout>
+    </androidx.core.widget.NestedScrollView>
+
+</RelativeLayout>

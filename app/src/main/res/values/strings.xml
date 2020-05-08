@@ -1,0 +1,18 @@
+<resources>
+    <string name="app_name">Go Cab</string>
+    <string name="title_activity_hom_screen_maps">Map</string>
+    <!-- TODO: Remove or change this placeholder text -->
+    <string name="PREFERENCE_FILE_KEY">PREFERENCE_FILE_KEY</string>
+    <string name="hello_blank_fragment">Hello blank fragment</string>
+    <string name="title_activity_search_location_maps">Map</string>
+    <string name="title_activity_home_screen">MainActivity</string>
+
+    <string name="title_home">Home</string>
+    <string name="title_search">Search</string>
+    <string name="title_cart">Cart</string>
+    <string name="title_profile">Profile</string>
+
+    <!--  Home Fragment Texts  -->
+    <string name="categories">Categories </string>
+
+</resources>
