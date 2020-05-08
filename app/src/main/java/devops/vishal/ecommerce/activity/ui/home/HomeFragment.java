@@ -41,6 +41,7 @@ public class HomeFragment extends Fragment {
     private ImageView[] dots;
     private Timer timer;
 
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         homeViewModel =
