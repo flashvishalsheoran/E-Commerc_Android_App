@@ -1,6 +1,7 @@
 package devops.vishal.ecommerce.adapter;
 
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -14,6 +15,7 @@ import java.util.ArrayList;
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 import devops.vishal.ecommerce.R;
+import devops.vishal.ecommerce.activity.ProductDescriptionActivity;
 import devops.vishal.ecommerce.models.ProductModel;
 
 public class SearchResultAdapter extends RecyclerView.Adapter<SearchResultAdapter.ViewHolder>{
@@ -45,6 +47,13 @@ public class SearchResultAdapter extends RecyclerView.Adapter<SearchResultAdapte
         holder.productPrice.setText(model.getProductPrice());
 
         Glide.with(mContext).load(imgPos).into(holder.productImage);
+
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                mContext.startActivity(new Intent(mContext, ProductDescriptionActivity.class));
+            }
+        });
 
 
     }

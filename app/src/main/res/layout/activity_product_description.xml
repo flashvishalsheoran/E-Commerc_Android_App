@@ -1,0 +1,477 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:background="#f1f1f1"
+    android:layout_height="match_parent"
+    tools:context="devops.vishal.ecommerce.activity.ProductDescriptionActivity">
+
+
+    <RelativeLayout
+        android:background="@color/white"
+        android:id="@+id/toolbarLayout"
+        android:layout_width="match_parent"
+        android:layout_height="55dp"
+        android:layout_alignParentTop="true">
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_centerInParent="true"
+            android:textColor="@color/textColor"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            android:fontFamily="@font/heading1"
+            android:text="Product Details"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:layout_alignParentLeft="true"
+            android:layout_centerVertical="true"
+            android:src="@drawable/ic_back"/>
+
+    </RelativeLayout>
+
+
+
+    <RelativeLayout
+        android:background="@color/white"
+        android:id="@+id/basicDetailsRelativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:paddingLeft="10dp"
+        android:paddingRight="10dp"
+        android:layout_below="@+id/toolbarLayout">
+
+
+        <TextView
+            android:id="@+id/productCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Apple"
+            android:textSize="12sp"
+            android:paddingLeft="10dp"
+            android:fontFamily="@font/heading1"
+            android:textStyle="bold"
+            android:textColor="@color/darkGrey"/>
+
+
+
+        <TextView
+            android:layout_below="@+id/productCategory"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Apple iPhone 11 (64GB) - Black "
+            android:textSize="14sp"
+            android:paddingLeft="10dp"
+            android:fontFamily="@font/heading1"
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_alignParentRight="true"
+            android:src="@drawable/ic_heart_disselected"
+            android:layout_centerVertical="true"
+            android:layout_marginRight="10dp"/>
+
+    </RelativeLayout>
+
+
+
+
+
+
+
+    <RelativeLayout
+        android:background="@color/white"
+        android:id="@+id/imageRelativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/basicDetailsRelativeLayout">
+
+        <ImageView
+            android:id="@+id/productImage"
+            android:layout_width="150dp"
+            android:layout_height="150dp"
+            android:layout_margin="20dp"
+            android:layout_centerHorizontal="true"
+            android:src="@drawable/p6"/>
+
+        <View
+            android:layout_below="@+id/productImage"
+            android:layout_width="match_parent"
+            android:layout_height="1dp"
+            android:background="@color/darkGrey"/>
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="33% off"
+            android:paddingLeft="10dp"
+            android:paddingRight="10dp"
+            android:paddingTop="3dp"
+            android:paddingBottom="3dp"
+            android:background="@drawable/round_yellow_background"
+            android:layout_marginTop="20dp"
+            android:fontFamily="@font/titillium_regular"
+            android:textStyle="bold"
+            android:textColor="@color/white"
+            android:layout_marginLeft="20dp"
+            android:textSize="14dp"/>
+
+
+    </RelativeLayout>
+
+
+
+    <RelativeLayout
+        android:background="@color/white"
+        android:id="@+id/priceRelativeLayout"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/imageRelativeLayout">
+
+        <TextView
+            android:id="@+id/totalPriceTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="₹ 44,999 "
+            android:textSize="25sp"
+            android:paddingLeft="10dp"
+            android:paddingTop="10dp"
+            android:fontFamily="@font/heading1"
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
+
+
+        <TextView
+            android:id="@+id/realPriceTV"
+            android:layout_below="@+id/totalPriceTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="MPR : ₹ 49,900"
+            android:textSize="12sp"
+            android:paddingLeft="10dp"
+            android:fontFamily="@font/heading1"
+            android:textColor="@color/darkGrey"/>
+
+
+        <TextView
+            android:id="@+id/discountPriceTV"
+            android:layout_below="@+id/totalPriceTv"
+            android:layout_toRightOf="@+id/realPriceTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="DISCOUNT : ₹ 3,099"
+            android:textSize="12sp"
+            android:paddingLeft="10dp"
+            android:fontFamily="@font/heading1"
+            android:textColor="@color/red"/>
+
+
+        <TextView
+            android:id="@+id/stockTv"
+            android:layout_below="@+id/realPriceTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="In Stock : Available"
+            android:textSize="14sp"
+            android:paddingLeft="10dp"
+            android:textStyle="bold"
+            android:fontFamily="@font/heading1"
+            android:textColor="@color/lightGreen"/>
+
+
+
+        <TextView
+            android:id="@+id/soldByTv"
+            android:layout_alignParentRight="true"
+            android:paddingTop="10dp"
+            android:paddingRight="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Sold By : "
+            android:textSize="14sp"
+            android:paddingLeft="10dp"
+            android:fontFamily="@font/heading1"
+            android:textColor="@color/black"/>
+
+        <TextView
+            android:layout_below="@+id/soldByTv"
+            android:layout_alignParentRight="true"
+            android:paddingRight="10dp"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Dharma iStore"
+            android:textSize="14sp"
+            android:paddingLeft="10dp"
+            android:fontFamily="@font/heading1"
+            android:textColor="@color/darkGrey"/>
+
+
+
+    </RelativeLayout>
+
+
+
+    <RelativeLayout
+        android:background="@color/white"
+        android:id="@+id/featuresRelativeLayout"
+        android:layout_width="match_parent"
+        android:padding="10dp"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="5dp"
+        android:layout_below="@+id/priceRelativeLayout">
+
+        <View
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/darkGrey"/>
+
+        <LinearLayout
+            android:id="@+id/centerLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="70dp"
+            android:orientation="horizontal">
+
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.25">
+
+                <ImageView
+                    android:id="@+id/deliveryImage"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/ic_delivery_cart"
+                    android:layout_centerInParent="true"/>
+
+                <TextView
+                    android:layout_below="@+id/deliveryImage"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/heading1"
+                    android:textColor="@color/darkGrey"
+                    android:textStyle="bold"
+                    android:text="1-Day Delivery"/>
+
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.25">
+
+                <ImageView
+                    android:id="@+id/deliveryImage1"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/ic_replacement"
+                    android:layout_centerInParent="true"/>
+
+                <TextView
+                    android:layout_below="@+id/deliveryImage1"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/heading1"
+                    android:textColor="@color/darkGrey"
+                    android:textStyle="bold"
+                    android:text="10 Days Replace"/>
+
+            </RelativeLayout>
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.25">
+
+                <ImageView
+                    android:id="@+id/deliveryImage2"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/ic_delivery_van"
+                    android:layout_centerInParent="true"/>
+
+                <TextView
+                    android:layout_below="@+id/deliveryImage2"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/heading1"
+                    android:textColor="@color/darkGrey"
+                    android:textStyle="bold"
+                    android:text="Fast Delivery"/>
+
+
+            </RelativeLayout>
+
+
+            <RelativeLayout
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="0.25">
+
+
+                <ImageView
+                    android:id="@+id/deliveryImage3"
+                    android:layout_width="35dp"
+                    android:layout_height="35dp"
+                    android:src="@drawable/ic_warranty"
+                    android:layout_centerInParent="true"/>
+
+                <TextView
+                    android:layout_below="@+id/deliveryImage3"
+                    android:layout_width="wrap_content"
+                    android:layout_height="wrap_content"
+                    android:layout_centerHorizontal="true"
+                    android:textSize="12sp"
+                    android:fontFamily="@font/heading1"
+                    android:textColor="@color/darkGrey"
+                    android:textStyle="bold"
+                    android:text="1 Year Warranty"/>
+
+            </RelativeLayout>
+
+        </LinearLayout>
+
+
+        <View
+            android:id="@+id/bottomDivider"
+            android:layout_marginTop="5dp"
+            android:layout_below="@+id/centerLinearLayout"
+            android:layout_width="match_parent"
+            android:layout_height="0.5dp"
+            android:background="@color/darkGrey"/>
+
+
+    </RelativeLayout>
+
+
+
+
+    <RelativeLayout
+        android:id="@+id/descriptionRelativeLayout"
+        android:layout_marginTop="5dp"
+        android:layout_width="match_parent"
+        android:padding="10dp"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/featuresRelativeLayout"
+        android:background="@color/white">
+
+        <TextView
+            android:id="@+id/descriptionTitleTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Description"
+            android:paddingLeft="10dp"
+            android:paddingBottom="10dp"
+            android:fontFamily="@font/heading1"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
+
+
+        <TextView
+            android:id="@+id/descTV"
+            android:layout_below="@+id/descriptionTitleTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/titillium_regular"
+            android:textSize="14sp"
+            android:paddingLeft="10dp"
+            android:text="Only iPhone No other phone is like iPhone. Only when hardware and software are designed together can they truly work together. Apple teams design the world’s best products, with the most innovative displays, chips, cameras, operating systems, and services. But just as important"
+            />
+
+        <TextView
+            android:layout_below="@+id/descTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Show more..."
+            android:textColor="@color/blue"
+            android:layout_alignParentRight="true"/>
+
+
+
+
+    </RelativeLayout>
+
+
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="@color/white"
+        android:layout_marginTop="5dp"
+        android:padding="10dp"
+        android:layout_below="@+id/descriptionRelativeLayout">
+
+
+        <TextView
+            android:id="@+id/featureTitleTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Features"
+            android:paddingLeft="10dp"
+            android:paddingBottom="10dp"
+            android:fontFamily="@font/heading1"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            android:textColor="@color/black"/>
+
+
+        <TextView
+            android:id="@+id/featureTV"
+            android:layout_below="@+id/featureTitleTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/titillium_regular"
+            android:textSize="14sp"
+            android:paddingLeft="10dp"
+            android:text="Iphone have many feature including he best batteryLife that We can have"
+             />
+
+        <TextView
+            android:layout_below="@+id/featureTV"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Show more..."
+            android:textColor="@color/blue"
+            android:layout_alignParentRight="true"/>
+
+
+
+
+    </RelativeLayout>
+
+
+
+
+
+
+
+
+    <Button
+        android:layout_width="200dp"
+        android:layout_height="wrap_content"
+        android:layout_alignParentBottom="true"
+        android:layout_centerHorizontal="true"
+        android:layout_marginBottom="10dp"
+        android:background="@drawable/round_yellow_background"
+        android:text="Add To Cart"
+        android:textColor="@color/white"/>
+
+
+</RelativeLayout>

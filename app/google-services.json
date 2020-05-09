@@ -8,17 +8,17 @@
   "client": [
     {
       "client_info": {
-        "mobilesdk_app_id": "1:214625039282:android:4dff271c8a62eea05beaab",
+        "mobilesdk_app_id": "1:214625039282:android:be69b162a4a0573b5beaab",
         "android_client_info": {
-          "package_name": "com.allandroidprojects.ecomsample"
+          "package_name": "devops.vishal.ecommerce"
         }
       },
       "oauth_client": [
         {
-          "client_id": "214625039282-b0vagnm80bb0k0ie06rrkc2aiciq7m8b.apps.googleusercontent.com",
+          "client_id": "214625039282-uqq23bmqtkgkjaksmqc024tkm5bkj4g7.apps.googleusercontent.com",
           "client_type": 1,
           "android_info": {
-            "package_name": "com.allandroidprojects.ecomsample",
+            "package_name": "devops.vishal.ecommerce",
             "certificate_hash": "9e48c2aa3c55c99c2ab5fa47423aab2e272eec80"
           }
         },

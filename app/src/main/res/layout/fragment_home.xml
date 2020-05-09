@@ -213,7 +213,7 @@
                 android:layout_centerVertical="true"
                 android:layout_marginTop="10dp"
                 android:layout_marginRight="10dp"
-                android:background="@color/quantum_orange"/>
+                android:background="@color/toolbarColor"/>
 
         </RelativeLayout>
 

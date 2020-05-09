@@ -22,9 +22,10 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
+        <activity android:name=".activity.ProductDescriptionActivity"></activity>
         <activity
             android:name=".activity.HomeScreenActivity"
-            android:label="@string/title_activity_home_screen"></activity>
+            android:label="@string/title_activity_home_screen" />
 
         <uses-library
             android:name="org.apache.http.legacy"
