@@ -12,6 +12,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import devops.vishal.ecommerce.R;
@@ -43,6 +44,7 @@ public class LivingActivity extends AppCompatActivity {
                     productModel = dataSnap.getValue(ProductModel.class);
                     productModelList.add(productModel);
                 }
+                Collections.reverse(productModelList);
                 ProductsAdapters adapter = new ProductsAdapters(LivingActivity.this,mBindings.lRecyclerView, getApplicationContext(), productModelList);
                 mBindings.lRecyclerView.setAdapter(adapter);
             }

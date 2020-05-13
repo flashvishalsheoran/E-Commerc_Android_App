@@ -76,11 +76,17 @@
         android:layout_alignParentRight="true"
         android:layout_alignParentBottom="true"/>
 
-
-
-
-
-
+    <TextView
+        android:id="@+id/buyNowTV"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_alignParentRight="true"
+        android:layout_alignParentBottom="true"
+        android:textColor="@color/blue"
+        android:textStyle="bold"
+        android:fontFamily="@font/heading1"
+        android:visibility="gone"
+        android:text="Buy Now"/>
 
 
 </RelativeLayout>

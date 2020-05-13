@@ -11,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
@@ -123,6 +124,7 @@ public class HomeFragment extends Fragment {
                     }
                     LinearLayoutManager manager = new LinearLayoutManager(getContext());
                     manager.setOrientation(RecyclerView.VERTICAL);
+                    Collections.reverse(productNames);
                     ProductsAdapters adapter = new ProductsAdapters(getActivity(),mFragBindings.popularRecycler1,getContext(),productNames);
                     mFragBindings.popularRecycler1.setLayoutManager(manager);
                     mFragBindings.popularRecycler1.setAdapter(adapter);

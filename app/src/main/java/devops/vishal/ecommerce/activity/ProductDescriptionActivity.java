@@ -10,6 +10,7 @@ import devops.vishal.ecommerce.activity.ui.search.SearchFragment;
 import devops.vishal.ecommerce.application.EcommerceApplication;
 import devops.vishal.ecommerce.databinding.ActivityProductDescriptionBinding;
 import devops.vishal.ecommerce.models.CartModel;
+import devops.vishal.ecommerce.models.ProductModel;
 import devops.vishal.ecommerce.utility.Util;
 
 import android.content.SharedPreferences;
@@ -80,20 +81,45 @@ public class ProductDescriptionActivity extends AppCompatActivity  {
         mBindings.addToCartBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-               pushOfAddCart(productId);
+               pushOfAddCart();
             }
         });
 
     }
-    private void pushOfAddCart(String productId){
+    private void pushOfAddCart(){
         demoRef = EcommerceApplication.getFirebaseDBInstance().child("cartProduct")
                 .child(userPhone);
         demoRef.addListenerForSingleValueEvent(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-                CartModel cartModel = new CartModel();
-                cartModel.setProduct(productId);
-                demoRef.push().setValue(cartModel);
+                ProductModel productModel = new ProductModel();
+                productModel.setProductName(getIntent().getStringExtra("productName"));
+                productModel.setProductCategory(getIntent().getStringExtra("productCategory"));
+                productModel.setProductPrice(getIntent().getStringExtra("productPrice"));
+
+                productModel.setProductFeatures1(getIntent().getStringExtra("productFeatures1"));
+                productModel.setProductFeatures2(getIntent().getStringExtra("productFeatures2"));
+                productModel.setProductFeatures3(getIntent().getStringExtra("productFeatures3"));
+                productModel.setProductFeatures4(getIntent().getStringExtra("productFeatures4"));
+                productModel.setProductAvailable(getIntent().getStringExtra("productAvailable"));
+
+                productModel.setProductBrand(getIntent().getStringExtra("productBrand"));
+
+                productModel.setProductTotalPrice(getIntent().getStringExtra("productTotalPrice"));
+                productModel.setProductDiscountPercent(getIntent().getStringExtra("productDiscountPercent"));
+                productModel.setProductDiscountPrice(getIntent().getStringExtra("productDiscountPrice"));
+                productModel.setProductType(getIntent().getStringExtra("productType"));
+
+                productModel.setProductDescription(getIntent().getStringExtra("productDescription"));
+
+                productModel.setProductImage(getIntent().getStringExtra("productImage"));
+                demoRef.push().setValue(productModel);
+
+
+
+//                CartModel cartModel = new CartModel();
+//                cartModel.setProduct(productId);
+//                demoRef.push().setValue(cartModel);
 
                 Toast.makeText(ProductDescriptionActivity.this,"Product Added to Cart",Toast.LENGTH_SHORT).show();
             }
@@ -109,6 +135,7 @@ public class ProductDescriptionActivity extends AppCompatActivity  {
         FragmentTransaction transactionManager = getSupportFragmentManager().beginTransaction();
         transactionManager.replace(R.id.frameContainer , fragment).commit();
     }
+
 
 
 }

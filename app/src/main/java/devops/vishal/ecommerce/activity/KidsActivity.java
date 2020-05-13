@@ -12,6 +12,7 @@ import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.ValueEventListener;
 
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.List;
 
 import devops.vishal.ecommerce.R;
@@ -44,6 +45,7 @@ public class KidsActivity extends AppCompatActivity {
                     productModel = dataSnap.getValue(ProductModel.class);
                     productModelList.add(productModel);
                 }
+                Collections.reverse(productModelList);
                 ProductsAdapters adapter = new ProductsAdapters(KidsActivity.this, mBindings.kRecyclerView, getApplicationContext(), productModelList);
                 mBindings.kRecyclerView.setAdapter(adapter);
             }

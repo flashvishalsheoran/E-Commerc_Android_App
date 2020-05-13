@@ -21,6 +21,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import devops.vishal.ecommerce.adapter.CartProductAdapter;
 import devops.vishal.ecommerce.adapter.ProductsAdapters;
 import devops.vishal.ecommerce.adapter.SearchResultAdapter;
 import devops.vishal.ecommerce.application.EcommerceApplication;
@@ -31,30 +32,21 @@ import devops.vishal.ecommerce.utility.Util;
 
 public class CartFragment extends Fragment {
     private FragmentCartBinding mBindings;
-    private DatabaseReference demoRef,mRef;
-    private List<CartModel> productID;
-    private String userPhone, productId;
+    private DatabaseReference demoRef;
+    private String userPhone;
     private SharedPreferences sharedPreferences;
     private List<ProductModel> productNames;
-    private ProductsAdapters adapters;
-    private ProductModel productModel;
+    private CartProductAdapter adapters;
+
+
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
         mBindings = FragmentCartBinding.inflate(inflater);
         View root = mBindings.getRoot();
-
         sharedPreferences = Util.getSharePrefrences(getContext());
-
         userPhone = sharedPreferences.getString("userPhone", "");
 
         cartProduct();
-
-
-        for (CartModel value : productID) {
-            String check = value.getProduct();
-            Log.i("Value of element ", check);
-        }
-
 
         return root;
     }
@@ -64,40 +56,20 @@ public class CartFragment extends Fragment {
         manager.setOrientation(RecyclerView.VERTICAL);
         mBindings.productRecyclerView.setLayoutManager(manager);
 
-        productID = new ArrayList<CartModel>();
-        demoRef = EcommerceApplication.getFirebaseDBInstance().child("cartProduct").child(userPhone);
-        demoRef.addListenerForSingleValueEvent(new ValueEventListener() {
-            @Override
-            public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
-                for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
-                    CartModel cartModel = new CartModel();
-                    cartModel = postSnapshot.getValue(CartModel.class);
-                    productID.add(cartModel);
-                }
-            }
-
-            @Override
-            public void onCancelled(@NonNull DatabaseError databaseError) {
-
-            }
-        });
-
-
         productNames = new ArrayList<ProductModel>();
 
-
-
-        mRef = EcommerceApplication.getFirebaseDBInstance().child("products");
-        mRef.orderByChild("productId").equalTo("1001").addValueEventListener(new ValueEventListener() {
+        demoRef = EcommerceApplication.getFirebaseDBInstance().child("cartProduct").child(userPhone);
+        demoRef.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
+                    ProductModel productModel = new ProductModel();
                     productModel = postSnapshot.getValue(ProductModel.class);
                     productNames.add(productModel);
-                }
 
-                adapters = new ProductsAdapters(getActivity(), mBindings.productRecyclerView, getContext(), productNames);
+                }
+                adapters = new CartProductAdapter(getActivity(), mBindings.productRecyclerView, getContext(), productNames);
                 mBindings.productRecyclerView.setAdapter(adapters);
             }
 
@@ -105,7 +77,6 @@ public class CartFragment extends Fragment {
             public void onCancelled(@NonNull DatabaseError databaseError) {
 
             }
-
         });
 
     }

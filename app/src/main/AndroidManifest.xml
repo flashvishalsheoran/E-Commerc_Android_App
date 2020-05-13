@@ -22,7 +22,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.KidsActivity"></activity>
+        <activity android:name=".activity.BuyProductActivity"></activity>
+        <activity android:name=".activity.KidsActivity" />
         <activity android:name=".activity.ShoesActivity" />
         <activity android:name=".activity.FashionActivity" />
         <activity android:name=".activity.LivingActivity" />
