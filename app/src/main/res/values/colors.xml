@@ -24,6 +24,7 @@
     <color name="lightBackgroundColor"></color>
     <color name="backgroundColor">#FDFBF2</color>
 
+    <color name="backgroundColorMain">#FFF222</color>
 
 
 </resources>

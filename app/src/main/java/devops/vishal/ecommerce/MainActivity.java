@@ -20,7 +20,6 @@ public class MainActivity extends AppCompatActivity implements PaymentResultWith
     private Button payBtn;
     private final String TAG = "Main Activity";
 
-
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);

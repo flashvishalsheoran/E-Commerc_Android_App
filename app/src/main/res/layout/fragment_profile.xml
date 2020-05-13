@@ -1,13 +1,122 @@
-<FrameLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="devops.vishal.ecommerce.activity.ui.profile.ProfileFragment">
+    tools:context="devops.vishal.ecommerce.activity.ui.profile.ProfileFragment"
+    android:orientation="vertical"
+    android:gravity="center">
 
 
-    <TextView
+
+
+    <LinearLayout
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:text="This is Profile Fragment" />
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_margin="10dp">
 
-</FrameLayout>
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_weight="0.5"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_profile_selected"
+            android:layout_gravity="center"
+            />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="2dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Name"
+                android:fontFamily="@font/acme_regular"
+                />
+            <TextView
+                android:id="@+id/userNameTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:fontFamily="@font/acme_regular"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_margin="10dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_weight="0.5"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_menu"
+            android:layout_gravity="center"
+            />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="2dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Email"
+                android:fontFamily="@font/acme_regular"
+                />
+            <TextView
+                android:id="@+id/userEmailTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:textStyle="bold"
+                android:fontFamily="@font/acme_regular"
+                />
+        </LinearLayout>
+
+    </LinearLayout>
+
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:orientation="horizontal"
+        android:gravity="center"
+        android:layout_margin="10dp">
+
+        <ImageView
+            android:layout_width="wrap_content"
+            android:layout_weight="0.5"
+            android:layout_height="wrap_content"
+            android:src="@drawable/ic_phone"
+            android:layout_gravity="center"
+            />
+        <LinearLayout
+            android:layout_width="0dp"
+            android:layout_weight="3"
+            android:layout_height="wrap_content"
+            android:orientation="vertical"
+            android:layout_margin="2dp">
+            <TextView
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:text="Phone Number"
+                android:fontFamily="@font/acme_regular"
+                />
+            <TextView
+                android:id="@+id/userPhoneTV"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:fontFamily="@font/acme_regular"
+                android:textStyle="bold"
+                />
+        </LinearLayout>
+    </LinearLayout>
+
+</LinearLayout>

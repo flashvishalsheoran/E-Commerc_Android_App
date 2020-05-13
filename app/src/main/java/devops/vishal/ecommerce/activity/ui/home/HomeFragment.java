@@ -1,6 +1,7 @@
 package devops.vishal.ecommerce.activity.ui.home;
 
 import android.content.Context;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -10,6 +11,7 @@ import android.widget.LinearLayout;
 import android.widget.TextView;
 
 import java.util.ArrayList;
+import java.util.List;
 import java.util.Timer;
 import java.util.TimerTask;
 
@@ -22,10 +24,16 @@ import androidx.lifecycle.ViewModelProviders;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 import androidx.viewpager.widget.ViewPager;
+import com.google.firebase.database.DataSnapshot;
+import com.google.firebase.database.DatabaseError;
+import com.google.firebase.database.DatabaseReference;
+import com.google.firebase.database.ValueEventListener;
 import devops.vishal.ecommerce.R;
+import devops.vishal.ecommerce.activity.FashionActivity;
 import devops.vishal.ecommerce.adapter.CategoriesAdapter;
 import devops.vishal.ecommerce.adapter.ProductsAdapters;
 import devops.vishal.ecommerce.adapter.ViewPagerAdapter;
+import devops.vishal.ecommerce.application.EcommerceApplication;
 import devops.vishal.ecommerce.databinding.FragmentHomeBinding;
 import devops.vishal.ecommerce.models.ProductModel;
 
@@ -36,10 +44,12 @@ public class HomeFragment extends Fragment {
     private ViewPagerAdapter viewPagerAdapter;
     private CategoriesAdapter mCategoryAdapter;
     private ProductsAdapters mProductAdapter;
-
     private int dotscount;
     private ImageView[] dots;
     private Timer timer;
+    private List<ProductModel> productNames ;
+    private DatabaseReference demoRef;
+
 
 
     public View onCreateView(@NonNull LayoutInflater inflater,
@@ -48,6 +58,14 @@ public class HomeFragment extends Fragment {
                 ViewModelProviders.of(this).get(HomeViewModel.class);
         getContext().getTheme().applyStyle(R.style.homeScreenDesign, true);
         mFragBindings = FragmentHomeBinding.inflate(inflater);
+
+        mFragBindings.shopNowBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                getActivity().startActivity(new Intent(getActivity(), FashionActivity.class));
+            }
+        });
+
         return mFragBindings.getRoot();
     }
 
@@ -67,36 +85,59 @@ public class HomeFragment extends Fragment {
         //Set Products Adapters
         setProductAdapter();
 
-
-
     }
 
     private void setProductAdapter() {
 
-        ArrayList<ProductModel> productNames = new ArrayList<>();
-        productNames.add(new ProductModel("LED Tv","Sony Onida LED","Price : 31,000"));
-        productNames.add(new ProductModel("Jeans","Denim Mens LED","Price : 1,200"));
-        productNames.add(new ProductModel("Shoes","Nike Jordon Shoes","Price : 5,699"));
-        productNames.add(new ProductModel("Shoes","Nike Lite Series","Price : 3,000"));
-        productNames.add(new ProductModel("iPhone","iPhone XR","Price : 45,000"));
-        productNames.add(new ProductModel("iPhone","iPhone 11","Price : 65,000"));
+//        productNames.add(new ProductModel("LED Tv","Sony Onida LED","Price : 31,000"));
+//        productNames.add(new ProductModel("Jeans","Denim Mens LED","Price : 1,200"));
+//        productNames.add(new ProductModel("Shoes","Nike Jordon Shoes","Price : 5,699"));
+//        productNames.add(new ProductModel("Shoes","Nike Lite Series","Price : 3,000"));
+//        productNames.add(new ProductModel("iPhone","iPhone XR","Price : 45,000"));
+//        productNames.add(new ProductModel("iPhone","iPhone 11","Price : 65,000"));
 
-
-
-        LinearLayoutManager manager = new LinearLayoutManager(getContext());
-        manager.setOrientation(RecyclerView.VERTICAL);
-
-        LinearLayoutManager manager1 = new LinearLayoutManager(getContext());
-        manager.setOrientation(RecyclerView.VERTICAL);
-
-
-        mProductAdapter = new ProductsAdapters(getContext(),productNames);
-
-        mFragBindings.popularRecycler1.setLayoutManager(manager);
-        mFragBindings.popularRecycler2.setLayoutManager(manager1);
-
+//        LinearLayoutManager manager = new LinearLayoutManager(getContext());
+//        manager.setOrientation(RecyclerView.VERTICAL);
+//
+//        LinearLayoutManager manager1 = new LinearLayoutManager(getContext());
+//        manager.setOrientation(RecyclerView.VERTICAL);
+//
+//
+//        mProductAdapter = new ProductsAdapters(mFragBindings.popularRecycler1,getContext(),productNames);
+//
+//        mFragBindings.popularRecycler1.setLayoutManager(manager);
+//        mFragBindings.popularRecycler2.setLayoutManager(manager1);
+//
         mFragBindings.popularRecycler1.setAdapter(mProductAdapter);
-        mFragBindings.popularRecycler2.setAdapter(mProductAdapter);
+//        mFragBindings.popularRecycler2.setAdapter(mProductAdapter);
+        try{
+            productNames = new ArrayList<>();
+            demoRef = EcommerceApplication.getFirebaseDBInstance().child("products");
+            demoRef.orderByChild("productPopular").equalTo("Popular").addListenerForSingleValueEvent(new ValueEventListener() {
+                @Override
+                public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
+                    for(DataSnapshot dataSnap : dataSnapshot.getChildren() ){
+                        ProductModel productModel = new ProductModel();
+                        productModel = dataSnap.getValue(ProductModel.class);
+                        productNames.add(productModel);
+                    }
+                    LinearLayoutManager manager = new LinearLayoutManager(getContext());
+                    manager.setOrientation(RecyclerView.VERTICAL);
+                    ProductsAdapters adapter = new ProductsAdapters(getActivity(),mFragBindings.popularRecycler1,getContext(),productNames);
+                    mFragBindings.popularRecycler1.setLayoutManager(manager);
+                    mFragBindings.popularRecycler1.setAdapter(adapter);
+
+                }
+                @Override
+                public void onCancelled(@NonNull DatabaseError databaseError) {
+
+                }
+            });
+
+
+        }catch (Exception e){
+
+        }
 
     }
 

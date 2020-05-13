@@ -22,7 +22,12 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.ProductDescriptionActivity"></activity>
+        <activity android:name=".activity.KidsActivity"></activity>
+        <activity android:name=".activity.ShoesActivity" />
+        <activity android:name=".activity.FashionActivity" />
+        <activity android:name=".activity.LivingActivity" />
+        <activity android:name=".activity.ElectronicsActivity" />
+        <activity android:name=".activity.ProductDescriptionActivity" />
         <activity
             android:name=".activity.HomeScreenActivity"
             android:label="@string/title_activity_home_screen" />

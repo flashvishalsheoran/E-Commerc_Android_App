@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import com.bumptech.glide.Glide;
 
-import java.util.ArrayList;
+import java.util.List;
 
 import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
@@ -18,15 +18,18 @@ import devops.vishal.ecommerce.R;
 import devops.vishal.ecommerce.activity.ProductDescriptionActivity;
 import devops.vishal.ecommerce.models.ProductModel;
 
-public class SearchResultAdapter extends RecyclerView.Adapter<SearchResultAdapter.ViewHolder>{
-
+public class SearchResultAdapter extends RecyclerView.Adapter<SearchResultAdapter.ViewHolder> {
+    private RecyclerView recyclerView;
     private Context mContext;
-    private ArrayList<ProductModel> mCategoryList;
-    private Integer [] images = {R.drawable.p5,R.drawable.p6,R.drawable.phone1,R.drawable.phone2,R.drawable.phone3,R.drawable.phone4};
+    private List<ProductModel> mCategoryList;
+    private ProductModel model;
+  //  private Integer [] images = {R.drawable.p5,R.drawable.p6,R.drawable.phone1,R.drawable.phone2,R.drawable.phone3,R.drawable.phone4};
 
-    public SearchResultAdapter(Context mContext, ArrayList<ProductModel> mCategoryList) {
+    public SearchResultAdapter(RecyclerView recyclerView, Context mContext, List<ProductModel> mCategoryList) {
+        this.recyclerView = recyclerView;
         this.mContext = mContext;
         this.mCategoryList = mCategoryList;
+
     }
 
     @NonNull
@@ -39,19 +42,39 @@ public class SearchResultAdapter extends RecyclerView.Adapter<SearchResultAdapte
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
 
-        ProductModel model = mCategoryList.get(position);
-
-        int imgPos = images[position];
+        model = mCategoryList.get(position);
+             //  int imgPos = images[position];
         holder.productName.setText(model.getProductName());
         holder.productCategory.setText(model.getProductCategory());
         holder.productPrice.setText(model.getProductPrice());
 
-        Glide.with(mContext).load(imgPos).into(holder.productImage);
+        Glide.with(mContext).load(model.getProductImage()).into(holder.productImage);
+
+
 
         holder.itemView.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                mContext.startActivity(new Intent(mContext, ProductDescriptionActivity.class));
+                Intent intent =new Intent(mContext, ProductDescriptionActivity.class);
+                intent.putExtra("productType",model.getProductType());
+                intent.putExtra("productName",model.getProductName());
+                intent.putExtra("productPrice",model.getProductPrice());
+                intent.putExtra("productImage",model.getProductImage());
+                intent.putExtra("productFeatures1",model.getProductFeatures1());
+                intent.putExtra("productFeatures2",model.getProductFeatures2());
+                intent.putExtra("productFeatures3",model.getProductFeatures3());
+                intent.putExtra("productFeatures4",model.getProductFeatures4());
+                intent.putExtra("productDiscountPrice",model.getProductDiscountPrice());
+                intent.putExtra("productDescription",model.getProductDescription());
+                intent.putExtra("productCategory",model.getProductCategory());
+                intent.putExtra("productBrand",model.getProductBrand());
+                intent.putExtra("productDiscountPercent",model.getProductDiscountPercent());
+                intent.putExtra("productAvailable",model.getProductAvailable());
+                intent.putExtra("productTotalPrice",model.getProductTotalPrice());
+                intent.putExtra("productId",model.getProductId());
+
+                mContext.startActivity(intent);
+
             }
         });
 

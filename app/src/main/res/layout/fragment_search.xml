@@ -29,6 +29,7 @@
                 android:layout_marginTop="5dp"
                 android:layout_marginBottom="5dp"
                 android:hint="Search Any Product"
+                android:lines="1"
                 android:layout_centerVertical="true"
                 android:textColor="@color/black"
                 android:paddingLeft="10dp"

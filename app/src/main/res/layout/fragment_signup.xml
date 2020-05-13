@@ -1,8 +1,30 @@
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context="devops.vishal.ecommerce.fragment.SignupFragment">
+    tools:context="devops.vishal.ecommerce.fragment.SignupFragment"
+    android:orientation="vertical"
+    android:background="@color/backgroundColorMain"
+    android:gravity="center">
+
+    <TextView
+        android:id="@+id/textView"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:gravity="center"
+        android:text="E-commerce"
+        android:textSize="40sp"
+        android:fontFamily="@font/boldfont"
+        android:textStyle="bold" />
+
+    <ImageView
+        android:id="@+id/image"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_gravity="center"
+        android:layout_marginTop="20dp"
+        android:background="#FFF222"
+        android:src="@drawable/ic_shopping_cart_blue_24dp" />
 
     <LinearLayout
         android:layout_width="match_parent"
@@ -14,7 +36,7 @@
             android:id="@+id/userNameEt"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:inputType="textEmailAddress"
+            android:lines="1"
             android:layout_centerInParent="true"
             android:hint="Enter Your Full Name"/>
 
@@ -22,7 +44,7 @@
             android:id="@+id/phoneEt"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:inputType="textPassword"
+            android:inputType="phone"
             android:layout_below="@+id/loginEt"
             android:hint="Enter Your Phone Number"/>
 
@@ -30,7 +52,7 @@
             android:id="@+id/emailEt"
             android:layout_width="match_parent"
             android:layout_height="40dp"
-            android:inputType="textPassword"
+            android:inputType="textEmailAddress"
             android:layout_below="@+id/loginEt"
             android:hint="Enter Your Email Address"/>
 
@@ -54,7 +76,8 @@
             android:id="@+id/fragmentSignupBtn"
             android:layout_width="match_parent"
             android:layout_below="@+id/passwordEt"
-            android:layout_height="40dp"
+            android:layout_height="wrap_content"
+            android:background="@drawable/round_yellow_background"
             android:text="Signup"/>
 
 
@@ -63,4 +86,4 @@
     </LinearLayout>
 
 
-</RelativeLayout>
+</LinearLayout>
