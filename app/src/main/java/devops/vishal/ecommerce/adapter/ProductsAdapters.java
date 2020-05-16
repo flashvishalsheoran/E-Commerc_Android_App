@@ -27,7 +27,7 @@ public class ProductsAdapters extends RecyclerView.Adapter<ProductsAdapters.View
     private RecyclerView recyclerView;
     private Context mContext;
     private List<ProductModel> mCategoryList;
-    private ProductModel model;
+
     private int posit;
     //private Integer [] images = {R.drawable.p5,R.drawable.p6,R.drawable.p1,R.drawable.p2,R.drawable.p3,R.drawable.p4};
 
@@ -47,7 +47,7 @@ public class ProductsAdapters extends RecyclerView.Adapter<ProductsAdapters.View
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        model = mCategoryList.get(position);
+        final ProductModel model = mCategoryList.get(position);
 
      //   int imgPos = images[position];
 
@@ -57,8 +57,33 @@ public class ProductsAdapters extends RecyclerView.Adapter<ProductsAdapters.View
         holder.productPrice.setText(model.getProductPrice());
         holder.productStock.setText("In Stock : "+model.getProductAvailable());
 
+        holder.itemView.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
 
-        posit = position+1;
+                Intent intent =new Intent(activity, ProductDescriptionActivity.class);
+                intent.putExtra("productType",model.getProductType());
+                intent.putExtra("productName",model.getProductName());
+                intent.putExtra("productPrice",model.getProductPrice());
+                intent.putExtra("productImage",model.getProductImage());
+                intent.putExtra("productFeatures1",model.getProductFeatures1());
+                intent.putExtra("productFeatures2",model.getProductFeatures2());
+                intent.putExtra("productFeatures3",model.getProductFeatures3());
+                intent.putExtra("productFeatures4",model.getProductFeatures4());
+                intent.putExtra("productDiscountPrice",model.getProductDiscountPrice());
+                intent.putExtra("productDescription",model.getProductDescription());
+                intent.putExtra("productCategory",model.getProductCategory());
+                intent.putExtra("productBrand",model.getProductBrand());
+                intent.putExtra("productDiscountPercent",model.getProductDiscountPercent());
+                intent.putExtra("productAvailable",model.getProductAvailable());
+                intent.putExtra("productTotalPrice",model.getProductTotalPrice());
+                intent.putExtra("productId",model.getProductId());
+
+                activity.startActivity(intent);
+            }
+
+
+        });
 
     }
 
@@ -82,37 +107,7 @@ public class ProductsAdapters extends RecyclerView.Adapter<ProductsAdapters.View
            productImage = itemView.findViewById(R.id.productIv);
            productStock = itemView.findViewById(R.id.stockTv);
 
-           itemView.setOnClickListener(new View.OnClickListener() {
-               @Override
-               public void onClick(View view) {
 
-                   int pos = getAdapterPosition();
-                   Log.i("pos", "onClick: "+pos);
-                   Log.i("pos1", "onClick: "+posit);
-
-                       Intent intent =new Intent(activity, ProductDescriptionActivity.class);
-                       intent.putExtra("productType",model.getProductType());
-                       intent.putExtra("productName",model.getProductName());
-                       intent.putExtra("productPrice",model.getProductPrice());
-                       intent.putExtra("productImage",model.getProductImage());
-                       intent.putExtra("productFeatures1",model.getProductFeatures1());
-                       intent.putExtra("productFeatures2",model.getProductFeatures2());
-                       intent.putExtra("productFeatures3",model.getProductFeatures3());
-                       intent.putExtra("productFeatures4",model.getProductFeatures4());
-                       intent.putExtra("productDiscountPrice",model.getProductDiscountPrice());
-                       intent.putExtra("productDescription",model.getProductDescription());
-                       intent.putExtra("productCategory",model.getProductCategory());
-                       intent.putExtra("productBrand",model.getProductBrand());
-                       intent.putExtra("productDiscountPercent",model.getProductDiscountPercent());
-                       intent.putExtra("productAvailable",model.getProductAvailable());
-                       intent.putExtra("productTotalPrice",model.getProductTotalPrice());
-                       intent.putExtra("productId",model.getProductId());
-
-                       activity.startActivity(intent);
-                   }
-
-
-           });
 
        }
 

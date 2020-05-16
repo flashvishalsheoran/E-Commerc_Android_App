@@ -51,7 +51,9 @@
             android:name="com.razorpay.ApiKey"
             android:value="rzp_live_DlOLh890Cj8cKS" />
 
-        <activity android:name=".activity.SplashScreen">
+        <activity android:name=".activity.SplashScreen"
+            android:windowSoftInputMode="adjustPan">
+
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
