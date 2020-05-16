@@ -12,7 +12,7 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:text="E-commerce"
-        android:textSize="40sp"
+        android:textSize="30sp"
         android:fontFamily="@font/heading1"
         android:textColor="@color/black"
         android:textStyle="bold"
@@ -41,7 +41,7 @@
             android:layout_width="300dp"
             android:layout_height="wrap_content"
             android:text="Login"
-            android:background="@drawable/round_blue"
+            android:background="@drawable/round_white"
             android:layout_gravity="center"
             />
 
@@ -50,7 +50,7 @@
             android:id="@+id/signUpBtn"
             android:layout_width="300dp"
             android:layout_height="wrap_content"
-            android:background="@drawable/round_blue"
+            android:background="@drawable/round_white"
             android:text="Sign Up"
             />
 
