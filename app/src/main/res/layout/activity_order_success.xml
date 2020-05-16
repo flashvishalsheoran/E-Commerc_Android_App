@@ -1,0 +1,169 @@
+<?xml version="1.0" encoding="utf-8"?>
+<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:background="@color/white">
+
+
+
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:visibility="gone"
+        android:id="@+id/successAnimation"
+        android:layout_width="200dp"
+        android:layout_height="200dp"
+        android:layout_marginTop="10dp"
+        android:layout_centerHorizontal="true"
+        android:layout_below="@+id/purchaseTv"
+        android:scaleType="centerCrop"
+        app:lottie_autoPlay="true"
+        app:lottie_loop="true"
+        app:lottie_rawRes="@raw/confirm_animation"/>
+
+
+
+
+    <com.airbnb.lottie.LottieAnimationView
+        android:id="@+id/startingAnimation"
+        android:layout_width="150dp"
+        android:layout_height="150dp"
+        android:layout_centerInParent="true"
+        android:scaleType="centerCrop"
+        app:lottie_autoPlay="true"
+        app:lottie_rawRes="@raw/order_success"/>
+
+
+    <TextView
+        android:id="@+id/completeTv"
+        android:visibility="gone"
+        android:layout_alignParentTop="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/heading1"
+        android:textColor="@color/black"
+        android:text="Congratulation your order"/>
+
+    <TextView
+        android:id="@+id/purchaseTv"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/completeTv"
+        android:layout_centerHorizontal="true"
+        android:textSize="14sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/heading1"
+        android:textColor="@color/black"
+        android:text="have been successfully placed !"/>
+
+
+    <TextView
+        android:layout_below="@+id/successAnimation"
+        android:layout_marginTop="20dp"
+        android:id="@+id/ordernumberText"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_centerHorizontal="true"
+        android:textSize="16sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/heading1"
+        android:textColor="@color/darkGrey"
+        android:text="Order Number"/>
+
+    <TextView
+        android:id="@+id/ordernumberTv"
+        android:visibility="gone"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_below="@+id/ordernumberText"
+        android:layout_centerHorizontal="true"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        android:fontFamily="@font/heading1"
+        android:textColor="@color/black"
+        android:text="#122390"/>
+
+
+
+    <RelativeLayout
+        android:clickable="true"
+        android:visibility="gone"
+        android:id="@+id/manageOrderButton"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="30dp"
+        android:elevation="5dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:background="@color/statusBarColor"
+        android:layout_below="@+id/ordernumberTv">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Manage Orders"
+            android:textAllCaps="false"
+            android:textSize="14sp"
+
+            android:layout_centerInParent="true"
+            android:textColor="@color/white"/>
+
+    </RelativeLayout>
+
+
+
+    <RelativeLayout
+        android:clickable="true"
+        android:visibility="gone"
+        android:id="@+id/countinueBuyingButton"
+        android:layout_width="match_parent"
+        android:layout_height="50dp"
+        android:layout_marginTop="15dp"
+        android:elevation="10dp"
+        android:layout_marginLeft="50dp"
+        android:layout_marginRight="50dp"
+        android:background="@color/white"
+        android:layout_below="@+id/manageOrderButton">
+
+
+        <TextView
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:text="Continue Buying"
+            android:textAllCaps="false"
+            android:textSize="14sp"
+            android:layout_centerInParent="true"
+            android:textColor="@color/statusBarColor"/>
+
+    </RelativeLayout>
+
+
+
+    <TextView
+        android:id="@+id/supportTxtTv"
+        android:visibility="gone"
+        android:layout_alignParentBottom="true"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_marginTop="30dp"
+        android:layout_centerHorizontal="true"
+        android:textSize="8sp"
+        android:padding="10dp"
+        android:fontFamily="@font/heading1"
+        android:textColor="@color/black"
+        android:text="* For any queries and information, Please contact our customer support. "/>
+
+
+
+
+
+
+</RelativeLayout>

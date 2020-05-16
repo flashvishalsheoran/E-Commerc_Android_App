@@ -38,17 +38,8 @@ public class ProductDescriptionActivity extends AppCompatActivity  {
         setTheme(R.style.fullScreenDesign);
         setContentView(mBindings.getRoot());
 
-//        mBindings.backIV.setOnClickListener(new View.OnClickListener() {
-//            @Override
-//            public void onClick(View v) {
-//                loadFragment(new SearchFragment());
-//
-//            }
-//        });
-
-
         mBindings.productCategory.setText(getIntent().getStringExtra("productCategory"));
-        mBindings.totalPriceTv.setText(getIntent().getStringExtra("productPrice"));
+        mBindings.totalPriceTv.setText(" ₹ "+getIntent().getStringExtra("productPrice"));
         mBindings.descTV.setText(getIntent().getStringExtra("productDescription"));
 
         mBindings.featureTV.setText(getIntent().getStringExtra("productFeatures1")+"\n");
@@ -70,12 +61,10 @@ public class ProductDescriptionActivity extends AppCompatActivity  {
 
 
         sharedPreferences  = Util.getSharePrefrences(ProductDescriptionActivity.this);
-
         userPhone =sharedPreferences.getString("userPhone","");
 
 
         productId = getIntent().getStringExtra("productId");
-
         System.out.println("aaa"+userPhone+" id"+productId);
 
         mBindings.addToCartBtn.setOnClickListener(new View.OnClickListener() {

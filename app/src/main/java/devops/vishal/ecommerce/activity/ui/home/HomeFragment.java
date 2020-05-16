@@ -76,6 +76,7 @@ public class HomeFragment extends Fragment {
 
         viewPagerAdapter = new ViewPagerAdapter(getContext());
         mFragBindings.viewPager.setAdapter(viewPagerAdapter);
+        productNames = new ArrayList<>();
 
         //Setting Dots to the image Slider
         setImageDotCount();
@@ -90,29 +91,9 @@ public class HomeFragment extends Fragment {
 
     private void setProductAdapter() {
 
-//        productNames.add(new ProductModel("LED Tv","Sony Onida LED","Price : 31,000"));
-//        productNames.add(new ProductModel("Jeans","Denim Mens LED","Price : 1,200"));
-//        productNames.add(new ProductModel("Shoes","Nike Jordon Shoes","Price : 5,699"));
-//        productNames.add(new ProductModel("Shoes","Nike Lite Series","Price : 3,000"));
-//        productNames.add(new ProductModel("iPhone","iPhone XR","Price : 45,000"));
-//        productNames.add(new ProductModel("iPhone","iPhone 11","Price : 65,000"));
 
-//        LinearLayoutManager manager = new LinearLayoutManager(getContext());
-//        manager.setOrientation(RecyclerView.VERTICAL);
-//
-//        LinearLayoutManager manager1 = new LinearLayoutManager(getContext());
-//        manager.setOrientation(RecyclerView.VERTICAL);
-//
-//
-//        mProductAdapter = new ProductsAdapters(mFragBindings.popularRecycler1,getContext(),productNames);
-//
-//        mFragBindings.popularRecycler1.setLayoutManager(manager);
-//        mFragBindings.popularRecycler2.setLayoutManager(manager1);
-//
-        mFragBindings.popularRecycler1.setAdapter(mProductAdapter);
-//        mFragBindings.popularRecycler2.setAdapter(mProductAdapter);
         try{
-            productNames = new ArrayList<>();
+            productNames.clear();
             demoRef = EcommerceApplication.getFirebaseDBInstance().child("products");
             demoRef.orderByChild("productPopular").equalTo("Popular").addListenerForSingleValueEvent(new ValueEventListener() {
                 @Override

@@ -1,6 +1,9 @@
 package devops.vishal.ecommerce.models;
 
-public class ProductModel {
+import android.os.Parcel;
+import android.os.Parcelable;
+
+public class ProductModel implements Parcelable {
 
     private String productName;
     private String productCategory;
@@ -44,6 +47,38 @@ public class ProductModel {
         this.productPopular = productPopular;
         this.productId = productId;
     }
+
+    protected ProductModel(Parcel in) {
+        productName = in.readString();
+        productCategory = in.readString();
+        productPrice = in.readString();
+        productImage = in.readString();
+        productFeatures1 = in.readString();
+        productFeatures2 = in.readString();
+        productFeatures3 = in.readString();
+        productFeatures4 = in.readString();
+        productDiscountPrice = in.readString();
+        productDescription = in.readString();
+        productBrand = in.readString();
+        productTotalPrice = in.readString();
+        productDiscountPercent = in.readString();
+        productAvailable = in.readString();
+        productType = in.readString();
+        productPopular = in.readString();
+        productId = in.readString();
+    }
+
+    public static final Creator<ProductModel> CREATOR = new Creator<ProductModel>() {
+        @Override
+        public ProductModel createFromParcel(Parcel in) {
+            return new ProductModel(in);
+        }
+
+        @Override
+        public ProductModel[] newArray(int size) {
+            return new ProductModel[size];
+        }
+    };
 
     public String getProductName() {
         return productName;
@@ -179,5 +214,31 @@ public class ProductModel {
 
     public void setProductId(String productId) {
         this.productId = productId;
+    }
+
+    @Override
+    public int describeContents() {
+        return 0;
+    }
+
+    @Override
+    public void writeToParcel(Parcel parcel, int i) {
+        parcel.writeString(productName);
+        parcel.writeString(productCategory);
+        parcel.writeString(productPrice);
+        parcel.writeString(productImage);
+        parcel.writeString(productFeatures1);
+        parcel.writeString(productFeatures2);
+        parcel.writeString(productFeatures3);
+        parcel.writeString(productFeatures4);
+        parcel.writeString(productDiscountPrice);
+        parcel.writeString(productDescription);
+        parcel.writeString(productBrand);
+        parcel.writeString(productTotalPrice);
+        parcel.writeString(productDiscountPercent);
+        parcel.writeString(productAvailable);
+        parcel.writeString(productType);
+        parcel.writeString(productPopular);
+        parcel.writeString(productId);
     }
 }

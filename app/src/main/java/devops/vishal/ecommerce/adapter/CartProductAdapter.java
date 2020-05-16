@@ -43,13 +43,12 @@ public class CartProductAdapter extends RecyclerView.Adapter<CartProductAdapter.
 
     @Override
     public void onBindViewHolder(@NonNull ViewHolder holder, int position) {
-        holder.favButton.setVisibility(View.INVISIBLE);
-        holder.buyProductButton.setVisibility(View.VISIBLE);
+        holder.favButton.setVisibility(View.GONE);
         model = productModelList.get(position);
 
         holder.productName.setText(model.getProductName());
         holder.productCategory.setText(model.getProductCategory());
-        holder.productPrice.setText(model.getProductPrice());
+        holder.productPrice.setText(" ₹ "+model.getProductPrice());
         holder.productStock.setText("In Stock : "+model.getProductAvailable());
 
         Glide.with(mContext).load(model.getProductImage()).into(holder.productImage);
@@ -59,21 +58,7 @@ public class CartProductAdapter extends RecyclerView.Adapter<CartProductAdapter.
             public void onClick(View v) {
                 Intent intent =new Intent(activity, BuyProductActivity.class);
 
-                intent.putExtra("productType",model.getProductType());
-                intent.putExtra("productName",model.getProductName());
                 intent.putExtra("productPrice",model.getProductPrice());
-                intent.putExtra("productImage",model.getProductImage());
-                intent.putExtra("productFeatures1",model.getProductFeatures1());
-                intent.putExtra("productFeatures2",model.getProductFeatures2());
-                intent.putExtra("productFeatures3",model.getProductFeatures3());
-                intent.putExtra("productFeatures4",model.getProductFeatures4());
-                intent.putExtra("productDiscountPrice",model.getProductDiscountPrice());
-                intent.putExtra("productDescription",model.getProductDescription());
-                intent.putExtra("productCategory",model.getProductCategory());
-                intent.putExtra("productBrand",model.getProductBrand());
-                intent.putExtra("productDiscountPercent",model.getProductDiscountPercent());
-                intent.putExtra("productAvailable",model.getProductAvailable());
-                intent.putExtra("productTotalPrice",model.getProductTotalPrice());
                 intent.putExtra("productId",model.getProductId());
 
                 activity.startActivity(intent);

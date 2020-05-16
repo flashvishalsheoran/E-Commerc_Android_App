@@ -29,39 +29,95 @@
         android:id="@+id/productRecyclerView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
+        android:layout_above="@+id/buyNowButton"
         android:layout_below="@+id/toolbarLayout"/>
 
 
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/buyNowButton"
+        android:clickable="true"
+        android:layout_width="match_parent"
+        android:layout_height="60dp"
+        android:layout_marginLeft="20dp"
+        android:layout_marginRight="20dp"
+        android:layout_marginTop="10dp"
+        android:background="@drawable/semi_round_button_backgtound"
+        android:layout_alignParentBottom="true"
+        android:layout_marginBottom="20dp"
+        android:padding="5dp">
+
+        <Button
+            android:id="@+id/superOrderBtn"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:background="@android:color/transparent"
+            android:fontFamily="@font/heading1"
+            android:text="Order Now"
+            android:textColor="@color/white"
+            android:textStyle="bold"
+            android:textSize="16sp"
+            android:padding="5dp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toStartOf="@+id/noOfPdtTv"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/noOfPdtTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:fontFamily="@font/heading1"
+            android:text="0"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.5"
+            app:layout_constraintStart_toEndOf="@+id/superOrderBtn"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="10dp"
+            android:fontFamily="@font/heading1"
+            android:text="Products"
+            android:textColor="@color/white"
+            android:textSize="16sp"
+            android:textStyle="bold"
+            app:layout_constraintStart_toEndOf="@+id/noOfPdtTv"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <TextView
+            android:id="@+id/rs_symbol3"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:fontFamily="@font/heading1"
+            android:text="₹"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            android:textStyle="bold"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toStartOf="@+id/noOfPdtTv"
+            app:layout_constraintTop_toBottomOf="@+id/noOfPdtTv" />
+
+        <TextView
+            android:id="@+id/superOrderTotalTv"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginLeft="5dp"
+            android:fontFamily="@font/heading1"
+            android:text="0"
+            android:textColor="@color/white"
+            android:textSize="18sp"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintStart_toEndOf="@+id/rs_symbol3"
+            app:layout_constraintTop_toBottomOf="@+id/noOfPdtTv" />
 
 
-
-<!--    <LinearLayout-->
-<!--        android:id="@+id/emptySearchLayout"-->
-<!--        android:layout_centerInParent="true"-->
-<!--        android:layout_width="wrap_content"-->
-<!--        android:orientation="vertical"-->
-<!--        android:layout_height="wrap_content">-->
-
-<!--        <ImageView-->
-<!--            android:layout_gravity="center_horizontal"-->
-<!--            android:id="@+id/searchImage"-->
-<!--            android:layout_width="80dp"-->
-<!--            android:layout_height="80dp"-->
-<!--            android:src="@drawable/ic_cart_selected"/>-->
-
-<!--        <TextView-->
-<!--            android:layout_gravity="center_horizontal"-->
-<!--            android:paddingTop="10dp"-->
-<!--            android:layout_width="wrap_content"-->
-<!--            android:layout_height="wrap_content"-->
-<!--            android:layout_below="@+id/searchImage"-->
-<!--            android:fontFamily="@font/heading1"-->
-<!--            android:textSize="18dp"-->
-<!--            android:textColor="@color/black"-->
-<!--            android:text="Searching Your Cart Products...."/>-->
-
-<!--    </LinearLayout>-->
-
+    </androidx.constraintlayout.widget.ConstraintLayout>
 
 
 

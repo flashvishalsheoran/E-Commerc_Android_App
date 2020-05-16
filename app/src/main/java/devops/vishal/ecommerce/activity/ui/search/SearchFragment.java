@@ -72,6 +72,7 @@ public class SearchFragment extends Fragment {
     @Override
     public void onStart() {
         super.onStart();
+        productNames = new ArrayList<>();
 
     }
 
@@ -84,15 +85,7 @@ public class SearchFragment extends Fragment {
         mBindings.emptySearchLayout.setVisibility(View.GONE);
         mBindings.productRecyclerView.setVisibility(View.VISIBLE);
 
-
-//            productNames.add(new ProductModel("iPhone","iPhone XR (64 gb) ","Price : 44,999"));
-//            productNames.add(new ProductModel("iPhone","iPhone 11 (128 gb) ","Price : 75,000"));
-//            productNames.add(new ProductModel("One Plus","Oneplus 7T (8gb Ram) ","Price : 49,000"));
-//            productNames.add(new ProductModel("Oppo","Oppo A9 Pro (4/64 gb)","Price : 15,000"));
-//            productNames.add(new ProductModel("Samsung","Samsung M50 (5/64 gb) ","Price : 18,000"));
-//            productNames.add(new ProductModel("Samsung","Samsung M20 (4/64 gb)","Price : 12,599"));
-        productNames = new ArrayList<>();
-
+        productNames.clear();
         demoRef =  EcommerceApplication.getFirebaseDBInstance().child("products");
 
         demoRef.orderByChild("productName")

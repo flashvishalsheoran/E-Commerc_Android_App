@@ -1,5 +1,8 @@
 package devops.vishal.ecommerce.activity.ui.cart;
 
+import android.app.ProgressDialog;
+import android.content.Context;
+import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.util.Log;
@@ -21,6 +24,7 @@ import com.google.firebase.database.ValueEventListener;
 import java.util.ArrayList;
 import java.util.List;
 
+import devops.vishal.ecommerce.activity.BuyProductActivity;
 import devops.vishal.ecommerce.adapter.CartProductAdapter;
 import devops.vishal.ecommerce.adapter.ProductsAdapters;
 import devops.vishal.ecommerce.adapter.SearchResultAdapter;
@@ -28,6 +32,7 @@ import devops.vishal.ecommerce.application.EcommerceApplication;
 import devops.vishal.ecommerce.databinding.FragmentCartBinding;
 import devops.vishal.ecommerce.models.CartModel;
 import devops.vishal.ecommerce.models.ProductModel;
+import devops.vishal.ecommerce.utility.Constants;
 import devops.vishal.ecommerce.utility.Util;
 
 public class CartFragment extends Fragment {
@@ -38,6 +43,10 @@ public class CartFragment extends Fragment {
     private List<ProductModel> productNames;
     private CartProductAdapter adapters;
 
+    private String mTotalAmount;
+    private String mTotalProducts;
+    private ProgressDialog mDialog;
+
 
     public View onCreateView(@NonNull LayoutInflater inflater,
                              ViewGroup container, Bundle savedInstanceState) {
@@ -45,13 +54,33 @@ public class CartFragment extends Fragment {
         View root = mBindings.getRoot();
         sharedPreferences = Util.getSharePrefrences(getContext());
         userPhone = sharedPreferences.getString("userPhone", "");
+        mDialog = new ProgressDialog(getContext());
 
         cartProduct();
+
+        mBindings.buyNowButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                Bundle bundle = new Bundle();
+                bundle.putString("USER_PHONE",userPhone);
+                bundle.putString("TOTAL_AMOUNT",mTotalAmount);
+
+                Intent buyIntent = new Intent(getContext(), BuyProductActivity.class);
+                buyIntent.putExtras(bundle);
+
+                startActivity(buyIntent);
+            }
+        });
 
         return root;
     }
 
     private void cartProduct(){
+
+        mDialog.setMessage("Loading Cart Details");
+        mDialog.setCancelable(false);
+        mDialog.show();
+
         LinearLayoutManager manager = new LinearLayoutManager(getContext());
         manager.setOrientation(RecyclerView.VERTICAL);
         mBindings.productRecyclerView.setLayoutManager(manager);
@@ -69,16 +98,59 @@ public class CartFragment extends Fragment {
                     productNames.add(productModel);
 
                 }
-                adapters = new CartProductAdapter(getActivity(), mBindings.productRecyclerView, getContext(), productNames);
-                mBindings.productRecyclerView.setAdapter(adapters);
+
+                fillRecyclerView();
+
             }
 
             @Override
             public void onCancelled(@NonNull DatabaseError databaseError) {
-
+                mDialog.dismiss();
+                Toast.makeText(getContext(), "Please check your internet connection...", Toast.LENGTH_SHORT).show();
             }
         });
 
     }
+
+    private void fillRecyclerView() {
+
+        if (productNames.size() > 0) {
+
+
+        int totalProduct = 0;
+        int totalAmount = 0;
+
+        for (ProductModel models : productNames) {
+
+            int amt = Integer.parseInt(models.getProductPrice().replace(",",""));
+            totalAmount = totalAmount + amt;
+
+            totalProduct++;
+        }
+
+
+        mTotalAmount = String.valueOf(totalAmount);
+        mTotalProducts = String.valueOf(totalProduct);
+
+        mBindings.noOfPdtTv.setText(mTotalProducts);
+        mBindings.superOrderTotalTv.setText(mTotalAmount);
+
+        adapters = new CartProductAdapter(getActivity(), mBindings.productRecyclerView, getContext(), productNames);
+        mBindings.productRecyclerView.setAdapter(adapters);
+
+        mDialog.dismiss();
+
+        }  else{
+
+            mDialog.dismiss();
+            //Animation
+
+        }
+
+
+
+    }
+
+
 
 }

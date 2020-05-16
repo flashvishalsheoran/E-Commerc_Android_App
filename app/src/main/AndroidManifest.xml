@@ -1,6 +1,7 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:dist="http://schemas.android.com/apk/distribution"
+    xmlns:tools="http://schemas.android.com/tools"
     package="devops.vishal.ecommerce">
     <!--
          The ACCESS_COARSE/FINE_LOCATION permissions are not required to use
@@ -22,7 +23,8 @@
         android:supportsRtl="true"
         android:theme="@style/AppTheme"
         android:usesCleartextTraffic="true">
-        <activity android:name=".activity.BuyProductActivity"></activity>
+        <activity android:name=".activity.OrderSuccessActivity"></activity>
+        <activity android:name=".activity.BuyProductActivity" />
         <activity android:name=".activity.KidsActivity" />
         <activity android:name=".activity.ShoesActivity" />
         <activity android:name=".activity.FashionActivity" />
